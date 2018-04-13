@@ -1,0 +1,138 @@
+body{
+    margin: 0; /*因为浏览器一般body都有默认的margin值，比如谷歌默认是 8px*/
+    height: 100%;
+    overflow: hidden;
+    /*overflow-x: auto;*/
+}
+/*头部*/
+.header{
+    position: fixed;
+    padding-top: 30px;
+    padding-right: 100px;
+    right: 0;   /* 绝对定位，相对于左右都是0，那么块级元素宽度就会被“撑大”*/
+    left: 0;
+    font-size: 18px;
+    z-index: 1000;
+    /*width: 100%; /* 这里不能用width去设置宽度，因为如果设置成100%，那么内边距padding就会失效，因为宽度等于100%，就挤不出内边距了*/
+}
+.header a{
+    font-size:12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+.login{
+    float: right;
+}
+/*中部*/
+.item{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /*box-sizing: content-box;*/
+    overflow: hidden;
+}
+.center{
+    overflow-x: hidden;
+    position: relative;
+
+}
+.container{
+    position: relative;
+}
+/*中部的箭头*/
+.button-arrow{
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 36px;
+    width: 36px;
+    cursor: pointer; /*鼠标移动之后的光标图形，这里是手势*/
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    z-index: 10;   /*图层显示优先级为10，这样才不会item图层覆盖*/
+    background-color: rgba(31,45,61,.11);
+
+}
+.button-arrow-left{
+    left: 16px;
+}
+.button-arrow-right{
+    right: 16px;
+}
+.button-arrow p{
+
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+
+}
+/*中部的中间盒子*/
+.Content-Box{
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 0 15px;
+    text-align: center;
+    font: 25px Microsoft Yahei ;
+    color: white;
+}
+.a-button{
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    font-size: 14px;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius:4px; /*边框弄成圆角*/
+}
+/*中部的切换游标*/
+.indicators{
+    position: absolute;
+    list-style-type: none;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+.indicator{
+    display: inline-block;
+    background-color: transparent;
+    padding: 12px 4px;
+    cursor: pointer;
+}
+.indicator-button{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    opacity: .48; /*透明度*/
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.is-active .indicator-button{
+    opacity: 1;
+}
+.is-animate{
+    transition-property: transform ;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+}
+.indicator .is-active{
+    z-index: 2;
+}
